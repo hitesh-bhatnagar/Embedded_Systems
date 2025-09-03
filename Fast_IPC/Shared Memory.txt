@@ -1,0 +1,12 @@
+Shared memory allows multiple processes to access the same memory block 
+
+	## This completely bypasses the need for the kernel to copy data, making it extremely efficient.
+	## Very fast but needs synchronization
+
+NOTE : 	Becoz multiple processes can write to the same location at the same time, it is highly prone
+		to race around ditions and requries synchronization (eg: mutexes or semaphores) to ensure data integrity
+
+		
+
+
+ 

@@ -1,0 +1,8 @@
+How a child process can replace itself with another program.
+
+Concept:
+	* After fork() both parent & child run the same code.
+	* But sometimes, you want the child to run a different program (like ls, date, or another C program)
+	* That's donw with exec()  => It replaces the child's code with new program while keeping the same PID
+
+	

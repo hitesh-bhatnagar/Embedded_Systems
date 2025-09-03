@@ -1,0 +1,47 @@
+📌 Project Task: Mini Embedded Task Manager
+
+## Objective
+
+Simulate a small embedded task manager that:
+
+	Spawns child processes (using fork()).
+
+	Logs each process’s PID into a file (using open/write/close).
+
+	Uses a pipe to send a message from parent → child.
+
+	Handles Ctrl+C (SIGINT) gracefully (doesn’t just exit, but cleans up).
+
+	Runs a thread (pthread) in the parent that monitors CPU usage (simulated with random numbers).
+
+
+## Requirements
+
+### Parent Process:
+
+		Creates a log file process_log.txt.
+
+		Forks 2 child processes.
+
+		Sends each child a “Start Task” message via pipe.
+
+		Starts a monitoring thread that prints “CPU Usage: X%” every 2 seconds.
+
+		Handles SIGINT: when user presses Ctrl+C, it:
+
+			Prints “Shutting down safely…”
+
+			Terminates children
+
+			Closes file
+
+			Exits gracefully.
+		
+
+### Child Process:
+
+		Reads message from pipe.
+
+		Prints “Child <PID> received: Start Task”.
+
+		Sleeps for a few seconds, then exits.

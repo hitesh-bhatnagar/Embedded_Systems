@@ -1,0 +1,10 @@
+Signals are a way to communicate with processes (like interrupts in embedded systems)
+
+	# Common Signals
+
+	SIGINT   -> Sent when you press Ctrl+C
+	SIGKILL	 -> Immediately kills a process (can't be caught/ignored)
+	SIGTERM  -> Termination request (can be caught/handled)
+	SIGCHLID -> Sent tp parent when a child terminates
+
+	

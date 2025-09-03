@@ -1,0 +1,18 @@
+Process = a running program in memory
+
+When you run ./a.out, Linux creates a processs for it.
+
+Each Process has a PID (process id)
+
+You can see them with  'ps' or 'top' or 'htop'
+
+fork()  => is a system call that creates a new process
+
+	New process = child
+	Original process = parent
+
+	Both cont executing code, but their fork() return values differ:
+		In child fork() returns 0
+		In parent, fork() returns the child's PID
+
+		

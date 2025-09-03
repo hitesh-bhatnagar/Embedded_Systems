@@ -1,0 +1,10 @@
+##		Process Synchronization with 'wait()'
+
+###		Zombie Process
+
+If the parent just keeps running, sometimes the child finishes early, but the parent still has 
+the child's entry in memory  
+
+NOTE: To properly manage children, the parent uses wait() or waitpid()
+
+
