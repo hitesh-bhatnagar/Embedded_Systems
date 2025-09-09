@@ -1,8 +1,8 @@
 #include<stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include <stdlib.h>		// general functions (exit)
+#include <unistd.h>		// system calls (fork, execvp);
 #include <string.h>
-#include <sys/wait.h>
+#include <sys/wait.h>	// wait() function 
 #include <time.h>
 
 
@@ -20,7 +20,7 @@ int main(void){
 
 		if(fgets(input, sizeof(input), stdin) == NULL) break; // reads user input
 
-		input[strcspn(input, "\n")] = 0;
+		input[strcspn(input, "\n")] = 0;	// remove new line character
 
 		if(strcmp(input, "exit") == 0){
 			printf("Existing myshell ... \n");

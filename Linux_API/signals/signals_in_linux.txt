@@ -1,0 +1,20 @@
+📌 Signals in Linux (To-the-Point Notes)
+
+Signal = software interrupt sent to a process (like Ctrl+C).
+
+Common signals:
+
+	SIGINT → interrupt (Ctrl+C)
+
+	SIGTERM → termination request
+
+	SIGKILL → force kill (cannot be caught/ignored)
+
+	SIGALRM → alarm timer
+
+signal() → attach a custom handler function.
+
+kill(pid, signal) → send a signal to a process.
+
+👉 Interview Q: “Can we catch SIGKILL?”
+No — only the kernel can kill with SIGKILL.
