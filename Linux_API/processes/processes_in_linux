@@ -1,0 +1,21 @@
+Process = running program with its own memory.
+
+PID = Process ID (unique number).
+
+fork() → creates a child process (duplicate of parent).
+
+	Returns 0 in child process.
+
+	Returns child PID in parent process.
+	
+
+exec() family → replaces current process image with a new program (ls, date, etc.).
+
+wait() / waitpid() → parent waits until child finishes.
+
+
+👉 Interview Question: “What’s the difference between fork() and exec()?”
+
+	fork() → creates new process.
+
+	exec() → runs a new program inside the process.
