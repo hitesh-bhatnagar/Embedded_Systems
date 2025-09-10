@@ -1,0 +1,3 @@
+Thread 2: Log entry 1
+Thread 3: Log entry 1
+Thread 4: Log entry 1

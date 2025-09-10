@@ -1,0 +1,45 @@
+###			 Quick Notes 
+
+
+👉 What is a Thread?
+
+A thread is like a “lightweight process.”
+
+Multiple threads share memory inside a single program (unlike processes).
+
+Each thread can run a different function at the same time.
+
+👉 Example analogy:
+
+Process = restaurant (has its own kitchen & tables).
+
+Threads = waiters inside the restaurant (share same kitchen/resources, but serve different tables).
+
+
+
+
+
+pthread_create() → creates a new thread.
+
+pthread_join() → waits for a thread to finish.
+
+pthread_mutex_t → lock used to protect shared resource.
+
+Race Condition → when 2+ threads access a shared resource without synchronization → inconsistent results.
+
+Mutex ensures only one thread can write to log file at a time.
+
+👉 Common Interview Question: “What’s the difference between a process and a thread?”
+
+Process → independent memory.
+
+Thread → shares memory with other threads in same process.
+
+
+###					Semaphores vs Mutex
+
+Mutex  -> Only one thread can enter critical section (ownership based -> only locker can unlock)
+semaphore  ->  like a counter, allows N threads to access a resource
+	*	Binary semaphore (0/1)  -> same as mutex
+	*	Counting semaphore  -> 	allows multiple threads in.
+
