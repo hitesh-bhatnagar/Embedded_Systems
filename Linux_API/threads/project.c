@@ -47,12 +47,11 @@ int main() {
 
 	pthread_mutex_init(&lock ,NULL);
 
-	int i = 0;
-	while(i++ < num_threads){
-		thread_ids[i] = i+1;
+	for(int i = 0; i < num_threads; i++) {
+		thread_ids[i] = i + 1;
 		pthread_create(&threads[i], NULL, write_logs, &thread_ids[i]);
-		
 	}
+
 
 	// wait for all threads
 	for(int i = 0; i < num_threads; i++){
@@ -61,6 +60,6 @@ int main() {
 
 	pthread_mutex_destroy(&lock);
 
-	printf("Los written to log.txt");
+	printf("Logs written to logs.txt\n");
 	return 0;
 }
