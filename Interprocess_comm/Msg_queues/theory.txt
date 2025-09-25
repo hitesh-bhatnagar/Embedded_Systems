@@ -1,0 +1,16 @@
+Message queues let processes send/receive structured messages
+
+Each message has:
+	* type(long int) -> like a channel ID
+	* data(char array, struct etc)
+
+Unlike pipes:
+	* messages don't need to be read in FIFO order -> you can receive by message type
+	* they persist until removed
+
+APIs :
+	* msgget(key, flags) -> create/get queue
+	* msgsnd(queue_id, &msg, size, flags) -> send msg
+	* msgrcv(queue_id, &msg, size, type, flags) -> receive message
+	* msgctl(queue_id, IPC_RMID, NULL) -> delete queue
+

@@ -36,6 +36,18 @@ int main(){
 		return 1;
 		
 	}
+	else if (pid > 0){		// parent process
+		close(fd[0]);		
+		write(fd[1], write_msg, strlen(write_msg) + 1);
+		close(fd[1]);
+	}
 
-	
+	else{		// child process
+		close(fd[1]);		// close write end
+		read(fd[0], read_msg, sizeof(read_msg));
+		printf("Child received : %s\n", read_msg);
+		close(fd[0]);
+		
+	}
+	return 0;
 }
