@@ -1,0 +1,54 @@
+
+##	IMPORTANT 	##
+
+shared memory -> fastest IPC but needs sync
+Semaphore -> lock/unlock to protect critical sections
+System V -> semaphores are process wide unlike sem_t (POSIX) which is thread focused
+
+
+Q) Why shared memory ?
+Ans.	Pipes/messages queues: Data passes through the kernel -> copy happens every time => slower.
+	Shared mem. is created once, mapped into myltiple processes no extra copying -> very fast
+	Ex: instead of givign you a xerox of notes (pipes), I let you open the same notebook (shared memory)
+	
+Q) Why semaphores with shared memory ?
+Ans.	Problem -> If two processes read/write at the same time then race conditions
+	Semaphore = lock system that says:
+		* sem_wait (p operation): take lock before entering
+		* sem_signal (V operation): release lock after done
+	Ex: Only one person can use the notebook at a time
+
+Q) System V APIs we use
+Ans.	Shared Memory:
+		* shmget(key,size, flags) -> create or get shared memory
+		* shmat(shmid, NULL, 0) -> attach shared memory to process address space
+		* shmdt(ptr) -> detach
+		* shmctl(shmid, IPC_RMID, NULL) -> delete shared memory
+	
+	Semaphores :
+		* semget(key, nsems, flags) -> create or get semaphore set
+		* semctl(semid, 0, SETVAL, val) -> initialize value (ex 1 = unlocked)
+		* semop(semid, &sb, 1) -> perform operation (wait/signal)
+			* struct sembuf sb = {0,-1, 0} -> wait(P)
+			* struct sembuf sb = {0,1,0} -> signal(V)
+
+
+Q) Minimal Example (counter with shared memory + semaphore) 
+Ans.	Two processes will update a shared counter safely.
+	Without semaphore -> counter gets corrupted
+	with semaphore -> counter is consider
+
+
+NOTE : difference between STRUCT and UNION
+
+STRUCT : * grouping different related data
+	 * separate memory for each member
+	 * sum of all members sizes
+	 * can use all members simultaneouly
+	 
+UNION : * Storing one of several possible data types
+	* Shared memory for all members
+	* Size of the largest members
+	* can use only one member at a time
+
+
