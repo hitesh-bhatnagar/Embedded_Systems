@@ -1,0 +1,32 @@
+Q). What are sockets ?
+
+		A socket = an endpoint for communication (like a door for sending/receiving data)
+
+		Two processes (or machines) connect via sockets -> send/receive messages
+
+		Types: 
+			* UNIX Domain Sockets -> same machine, fast (used by system services)
+			* Internet Sockets (TCP/UDP) -> communication across machines (IoT devices, servers, etc)
+
+Q). Important APIs
+
+	for both server & client
+
+		socket(domain, type, protocol) -> create a socket
+			* AF_INET -> Internet (IPv4)
+			* SOCK_STREAM -> TCP
+			* SOCK_DGRAM -> UDP
+
+		Server 
+			* bind(sock, addr, size) -> assign IP & Port
+			* listen (sock, backlog) -> wait for connections (TCP only)
+			* accept (sock, addr, size) -> accept connection from client
+
+		Client
+			* connect(sock, addr, size) -> connect to server
+
+		Both
+			* send(sock, buf, len, flags) -> send data
+			* recv(sock, buf, len, flags) -> receive data
+			* close(sock) -> close socket
+

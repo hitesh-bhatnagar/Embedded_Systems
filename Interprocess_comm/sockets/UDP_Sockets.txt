@@ -1,0 +1,11 @@
+TCP = like a phone call -> establish connection, reliable, ordered
+UDP = like sending letters -> no connection, no gurantee, but very fast
+Used in IoT, sensors, streaming, gaming where speed matters more than reliability
+
+##		Key differences
+
+	* No listen() or accept()
+	* just sendto() & recvfrom()
+	* servers just sits on aport and listens for messages
+
+
