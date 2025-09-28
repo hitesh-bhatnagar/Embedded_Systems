@@ -1,0 +1,8 @@
+Mini Project - 	TCP Client/Server Chat
+
+we will write a server that listens on port 8080, and a client  that connects and exchanges messages
+
+(Think of this as a building block for IoT devices talking to a cloud server)
+
+ 
+ 
