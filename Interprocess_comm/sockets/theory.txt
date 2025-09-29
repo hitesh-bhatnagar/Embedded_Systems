@@ -1,3 +1,6 @@
+NOTE : UDP(lightweigh,less overhead) is what i'll use for IoT sensors;
+
+
 Q). What are sockets ?
 
 		A socket = an endpoint for communication (like a door for sending/receiving data)
@@ -30,3 +33,19 @@ Q). Important APIs
 			* recv(sock, buf, len, flags) -> receive data
 			* close(sock) -> close socket
 
+
+		############ 	Must Know topics in Sockets 	#########################
+
+TCP vs UDP :-
+
+		TCP (SOCK_STREAM):
+			* Connection oriented(handshake)
+			* Reliable (gurantees delivery & order)
+			* Used for file transfer, web requests, databases
+
+		UDP (SOCK_DGRAM) :
+			* Connectinoless (just send)
+			* Unreliable (nogurantee)
+			* Used for real-tim, IoT sensors, video/audio streaming
+
+	
